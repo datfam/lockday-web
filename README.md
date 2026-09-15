@@ -1,11 +1,11 @@
-# lockday.app
+# lockday.xyz
 
 Website tĩnh của LockDay: landing page, Privacy Policy, Terms of Use và file cấu hình app đọc khi mở.
 Không có bước build — HTML/CSS thuần, deploy thẳng thư mục gốc (Cloudflare Pages hoặc GitHub Pages).
 
 ## Cấu trúc
 - `index.html` — trang chủ tối giản (tên app, câu giới thiệu, 3 màn hình khoá, 4 ý chính). Cố ý không ghi giá, số lượng mẫu/widget hay giới hạn để app nâng cấp không phải sửa web.
-- `privacy/index.html`, `terms/index.html` — app mở `https://lockday.app/privacy` và `/terms` từ Cài đặt và paywall.
+- `privacy/index.html`, `terms/index.html` — app mở `https://lockday.xyz/privacy` và `/terms` từ Cài đặt và paywall.
 - `config.json` — app đọc lúc mở (`RemoteConfig.swift`). Khoá: `shortcutURL` (link iCloud của phím tắt),
   `warning` tuỳ chọn `{ "minIOS", "maxIOS", "message_en", "message_ja", "message_ko", "message_vi" }`. Phải là JSON hợp lệ.
 - `assets/css/site.css` — một file CSS; màu lấy từ `LKTheme` của app.
