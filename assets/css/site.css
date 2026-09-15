@@ -1,0 +1,89 @@
+/* LockDay website: home, Privacy Policy, Terms of Use. Minimal on purpose.
+   Colors come from the iOS app (LKTheme); the system font is SF Pro on Apple devices, like the app. */
+:root {
+  --bg: #F4F5F9; --surface: #FFFFFF; --ink: #1E2130; --ink-2: #474C60; --ink-3: #62677C; --line: #E1E4EE;
+  --link: #9A5B00;
+  --q1: #F97066; --q2: #4FA3F7; --q3: #F5B942; --q4: #9AA0B2;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0F1117; --surface: #1A1D26; --ink: #F2F3F7; --ink-2: #C3C7D4; --ink-3: #9AA0B2; --line: #2C303B; --link: #FFC247; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); letter-spacing: -.02em; line-height: 1.1; text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--q3); outline-offset: 3px; border-radius: 6px; }
+.container { width: min(1080px, 100% - 40px); margin-inline: auto; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; z-index: 10; background: var(--surface); padding: 8px 12px; border-radius: 8px; }
+
+/* Header: the legal pages are always one tap away */
+.site-header { border-bottom: 1px solid var(--line); }
+.nav { display: flex; align-items: center; gap: 20px; min-height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 18px; text-decoration: none; }
+.brand img { width: 30px; height: 30px; border-radius: 7px; }
+.nav-links { display: flex; gap: 22px; margin-left: auto; font-size: 15px; font-weight: 600; }
+.nav-links a { color: var(--ink-2); text-decoration: none; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
+
+/* Home */
+.intro { padding-top: 72px; text-align: center; }
+.app-icon { width: 88px; height: 88px; margin: 0 auto 22px; border-radius: 20px; box-shadow: 0 8px 24px rgba(20, 24, 40, .12); }
+.intro h1 { font-size: clamp(40px, 6vw, 60px); font-weight: 800; }
+.tagline { margin-top: 10px; font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; color: var(--ink-2); }
+.lede { max-width: 34em; margin: 14px auto 0; font-size: 17px; color: var(--ink-3); }
+.phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 3vw, 36px); align-items: end; max-width: 840px; margin: 56px auto 0; }
+.phone { aspect-ratio: 402 / 874; padding: 3%; border-radius: 15% / 7%; background: #121318; box-shadow: 0 24px 48px -24px rgba(20, 24, 40, .45); }
+.phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 12.6% / 5.8%; }
+.phones .phone:nth-child(2) { transform: translateY(-24px); }
+.features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding: 80px 0 88px; }
+.feature h2 { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.feature h2::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--dot, var(--q4)); flex: none; }
+.feature p { margin-top: 8px; font-size: 15px; color: var(--ink-3); }
+@media (max-width: 860px) { .features { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) {
+  .intro { padding-top: 48px; }
+  .phones { gap: 10px; margin-top: 40px; }
+  .phones .phone:nth-child(2) { transform: translateY(-12px); }
+  .features { grid-template-columns: 1fr; gap: 22px; padding: 56px 0 64px; }
+  .nav-links { gap: 14px; font-size: 14px; }
+}
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 14px; color: var(--ink-3); }
+.footer-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+.footer-links a { color: var(--ink-2); font-weight: 600; text-decoration: none; }
+.footer-links a:hover { color: var(--ink); }
+.fineprint { flex-basis: 100%; font-size: 12px; }
+
+/* Privacy Policy and Terms of Use */
+.legal { padding: 56px 0 72px; }
+.legal-wrap { max-width: 760px; }
+.legal h1 { font-size: clamp(34px, 5vw, 48px); font-weight: 800; }
+.updated { margin-top: 10px; font-weight: 600; color: var(--ink-3); }
+.summary { margin-top: 28px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.summary h2 { font-size: 17px; letter-spacing: -.01em; }
+.summary ul { margin: 10px 0 0; padding-left: 20px; color: var(--ink-2); }
+.summary li + li { margin-top: 6px; }
+.legal-body h2 { margin: 40px 0 10px; font-size: 23px; }
+.legal-body h3 { margin: 22px 0 6px; font-size: 17px; letter-spacing: -.01em; }
+.legal-body p, .legal-body li { max-width: 68ch; color: var(--ink-2); }
+.legal-body p + p { margin-top: 12px; }
+.legal-body ul { margin: 10px 0; padding-left: 22px; }
+.legal-body li + li { margin-top: 6px; }
+.legal-body a { color: var(--link); text-underline-offset: 3px; }
+.legal-body strong { color: var(--ink); }
+/* No single word left alone on the intro line; phone edges stay visible on a dark background */
+.lede, .tagline { text-wrap: balance; }
+@media (prefers-color-scheme: dark) {
+  .phone { box-shadow: 0 0 0 1px rgba(255, 255, 255, .1), 0 24px 48px -24px rgba(0, 0, 0, .6); }
+}
